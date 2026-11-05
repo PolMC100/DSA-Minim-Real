@@ -1,7 +1,9 @@
-import models.Drone;
-import models.FlightPlan;
-import models.Pilot;
-import models.Position;
+package edu.upc.dsa.domain.repository;
+
+import edu.upc.dsa.domain.models.Drone;
+import edu.upc.dsa.domain.models.FlightPlan;
+import edu.upc.dsa.domain.models.Pilot;
+import edu.upc.dsa.domain.models.Position;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -148,6 +150,15 @@ public class DroneManagerImpl implements DroneManager {
             if (positions.isEmpty() || positions.contains(null)) {
                 LOGGER.error("El recorrido debe contener posiciones validas");
                 throw new IllegalArgumentException("El recorrido debe contener posiciones validas");
+            }
+            for (Position position : positions) {
+                if (position.getLatitude() == null || position.getLongitude() == null
+                        || !Double.isFinite(position.getLatitude()) || !Double.isFinite(position.getLongitude())
+                        || position.getLatitude() < -90 || position.getLatitude() > 90
+                        || position.getLongitude() < -180 || position.getLongitude() > 180) {
+                    LOGGER.error("Coordenadas no validas: {}", position);
+                    throw new IllegalArgumentException("La latitud y longitud deben ser validas");
+                }
             }
             if (warehouse.contains(drone)) { // Un dron en el almacen está pendiente de mantienimiento
                 LOGGER.error("El dron {} esta en mantenimiento", drone.getId());

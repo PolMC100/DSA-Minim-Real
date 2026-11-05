@@ -1,7 +1,11 @@
-import models.Drone;
-import models.FlightPlan;
-import models.Pilot;
-import models.Position;
+package edu.upc.dsa;
+
+import edu.upc.dsa.domain.repository.DroneManager;
+import edu.upc.dsa.domain.repository.DroneManagerImpl;
+import edu.upc.dsa.domain.models.Drone;
+import edu.upc.dsa.domain.models.FlightPlan;
+import edu.upc.dsa.domain.models.Pilot;
+import edu.upc.dsa.domain.models.Position;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

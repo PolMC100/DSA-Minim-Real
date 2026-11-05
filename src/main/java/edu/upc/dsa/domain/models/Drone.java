@@ -1,11 +1,14 @@
-package models;
+package edu.upc.dsa.domain.models;
 
 public class Drone {
-    private final String id;
-    private final String name;
-    private final String manufacturer;
-    private final String model;
+    private String id;
+    private String name;
+    private String manufacturer;
+    private String model;
     private double flightHours; // No lo dice el enunciado pero hace falta para ordenar por joras
+
+    public Drone() {
+    }
 
     public Drone(String id, String name, String manufacturer, String model) {
         this.id = id;
@@ -18,16 +21,32 @@ public class Drone {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getManufacturer() {
         return manufacturer;
     }
 
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
     public String getModel() {
         return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public double getFlightHours() {

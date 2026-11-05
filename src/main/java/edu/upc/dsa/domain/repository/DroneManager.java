@@ -1,6 +1,8 @@
-import models.Drone;
-import models.FlightPlan;
-import models.Pilot;
+package edu.upc.dsa.domain.repository;
+
+import edu.upc.dsa.domain.models.Drone;
+import edu.upc.dsa.domain.models.FlightPlan;
+import edu.upc.dsa.domain.models.Pilot;
 
 import java.util.List;
 
