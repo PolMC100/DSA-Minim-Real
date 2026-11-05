@@ -39,4 +39,11 @@ public class FlightPlan {
     public List<Position> getPositions() {
         return new ArrayList<>(positions);
     }
+
+    @Override
+    public String toString() {
+        return "FlightPlan{droneId='" + droneId + "', pilotId='" + pilotId
+                + "', startTime=" + startTime + ", estimatedHours=" + estimatedHours
+                + ", positions=" + positions + "}";
+    }
 }

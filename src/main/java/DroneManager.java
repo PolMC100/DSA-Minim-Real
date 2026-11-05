@@ -48,6 +48,8 @@ public interface DroneManager {
      * de inicio, la duracion estimada en horas y las posiciones del recorrido.
      * El intervalo de reserva incluye el inicio y excluye el final, de modo
      * que un plan puede comenzar justo cuando termina otro.
+     * Al registrar el plan, su duracion estimada se suma a las horas de vuelo
+     * del dron y del piloto, al no existir una operacion de fin de vuelo.
      * @throws IllegalArgumentException si el dron o el piloto no existen,
      *         faltan datos obligatorios o la duracion no es positiva y finita
      * @throws IllegalStateException si el dron esta en mantenimiento o si

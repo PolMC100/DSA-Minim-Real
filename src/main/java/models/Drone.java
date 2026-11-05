@@ -5,7 +5,7 @@ public class Drone {
     private final String name;
     private final String manufacturer;
     private final String model;
-    private double flightHours;
+    private double flightHours; // No lo dice el enunciado pero hace falta para ordenar por joras
 
     public Drone(String id, String name, String manufacturer, String model) {
         this.id = id;
