@@ -4,6 +4,7 @@ import io.swagger.jaxrs.config.BeanConfig;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.glassfish.grizzly.http.server.HttpServer;
+import org.glassfish.grizzly.http.server.StaticHttpHandler;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.moxy.json.MoxyJsonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -29,6 +30,9 @@ public class Main {
                 .property(ServerProperties.WADL_FEATURE_DISABLE, true);
 
         HttpServer server = GrizzlyHttpServerFactory.createHttpServer(uri, config, false);
+        StaticHttpHandler staticHttpHandler = new StaticHttpHandler("./public/");
+        staticHttpHandler.setFileCacheEnabled(false);
+        server.getServerConfiguration().addHttpHandler(staticHttpHandler, "/");
         try {
             server.start();
             BeanConfig beanConfig = new BeanConfig();
